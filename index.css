@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+html {
+  background: linear-gradient(#9198e5, #e66465);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* grid css setting */
 body {
   max-width: 1000px;
   padding-left: 20px;
   padding-right: 20px;
   margin:0 auto;
-  background-color: antiquewhite;
 }
 main::before,
 main::after{
