@@ -11,23 +11,31 @@
 
       <!-- search form area -->
         <form  class="js-form" action="#">
-          <label for="search-term">search any tutorial you like</label>
-          <input class="search-term" type="text" placeholder="such as: JAVA,PHP,PYTHON....">
-          <button type="submit">Submit</button>
+
+          <legend>Sam's Tube Challange</legend>
+
+          <fieldset>
+            <label for="search-term">search any tutorial you like</label>
+            <input class="search-term" id="search-term" type="text" placeholder="JAVA,PHP,PYTHON....">
+            <button type="submit">Submit</button>
+          </fieldset>
+
         </form>
+
+        <section role="region" class="pageInfo">
+          <p>
+            <span class="previous">&lt&lt&lt Previous &nbsp</span>
+            <span class="next"> &nbsp&nbsp Next &gt&gt&gt </span>
+            <span class="result-number">Result: 5</span>
+          </p>
+        </section>
 
     </nav>
 
     <main role="main" class="js-form" aria-live="assertive">
 
       <!-- previous and next section -->
-      <section role="region" class="pageInfo">
-        <p>
-          <span class="previous">&lt&lt&lt Previous &nbsp</span>
-          <span class="next"> &nbsp&nbsp Next &gt&gt&gt </span>
-          <span class="result-number">Result: 5</span>
-        </p>
-      </section>
+      
 
       <!-- result area -->
       <section role="region" class="js-result">
