@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" inital-scale="1">
+    <title>Youtube API Challenge</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <nav role="navigation">
+
+      <!-- search form area -->
+        <form  class="js-form" action="#">
+          <label for="search-term">search any tutorial you like</label>
+          <input class="search-term" type="text" placeholder="such as: JAVA,PHP,PYTHON....">
+          <button type="submit">Submit</button>
+        </form>
+
+    </nav>
+
+    <main role="main" class="js-form">
+
+      <!-- previous and next section -->
+      <section role="region" class="pageInfo">
+        <p>
+          <span class="previous">&lt&lt&lt Previous &nbsp</span>
+          <span class="next"> &nbsp&nbsp Next &gt&gt&gt </span>
+          <span class="result-number">Result: 5</span>
+        </p>
+      </section>
+
+      <!-- result area -->
+      <section role="region" class="js-result">
+
+      </section>
+
+    </main>
+
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+    <script src="index.js"></script>
+
+  </body>
+</html>
