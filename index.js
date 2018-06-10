@@ -34,7 +34,8 @@ function mapApiArray(JSON_Obj){
   updateTotalResult(getData);
   console.log(getData);
   // console.log( typeof( renderResult(getData.items[0])) );
-  $('.js-result').html( results.join('') );
+  $('.js-result').prop('hidden',false).html( results.join('') );
+
 
 }
 
