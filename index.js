@@ -21,6 +21,7 @@ function getDataFromApi(searchTerm,callback){
   $.getJSON(youtubeEndPoint, query, callback);
 }
 
+
 // use map method to identify each items
 function mapApiArray(JSON_Obj){
 
@@ -30,17 +31,23 @@ function mapApiArray(JSON_Obj){
   });
 
   getData = JSON_Obj;
-  // console.log(getData);
-  console.log( typeof( renderResult(getData.items[0])) );
+  updateTotalResult(getData);
+  console.log(getData);
+  // console.log( typeof( renderResult(getData.items[0])) );
   $('.js-result').html( results.join('') );
 
+}
+
+// update total result
+function updateTotalResult(Obj) {
+  $('.result-number').html(`Total Results: ${Obj.pageInfo.totalResults}`);
 }
 
 // display data as HTML
 function renderResult(item){
   // console.log(data);
   return `<div class="snippet-block">
-            <img src="${item.snippet.thumbnails.medium.url}" class="thumbnail" alt="${item.snippet.title}">
+            <a href="https://www.youtube.com/watch?v=7TF00hJI78Y${item.id.videoId}" target="_blank"><img src="${item.snippet.thumbnails.medium.url}" class="thumbnail" alt="${item.snippet.title}"></a>
             <div class="textInfo">
               <h1>${item.snippet.title}</h1>
               <p>Published at: ${item.snippet.publishedAt}</p>
