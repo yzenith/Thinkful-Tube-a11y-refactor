@@ -12,12 +12,12 @@ const query = {
   }
 
 let getData = {};
+let search_Term = '';
 
 // get Object Data from API
 function getDataFromApi(searchTerm,callback){
 
   query.q = searchTerm;
-
   $.getJSON(youtubeEndPoint, query, callback);
 }
 
@@ -31,8 +31,12 @@ function mapApiArray(JSON_Obj){
   });
 
   getData = JSON_Obj;
+  query.q = search_Term;
+  query.pageToken = JSON_Obj.nextPageToken;
   updateTotalResult(getData);
   console.log(getData);
+  console.log(query);
+
   // console.log( typeof( renderResult(getData.items[0])) );
   $('.js-result').prop('hidden',false).html( results.join('') );
 
@@ -52,7 +56,8 @@ function renderResult(item){
             <div class="textInfo">
               <h1>${item.snippet.title}</h1>
               <p>Published at: ${item.snippet.publishedAt}</p>
-              <p>The channelID is: ${item.snippet.channelId}</p>
+              <p>Visit <a href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a> 's channel</p>
+              <p>This channel Live Broadcast Content status: ${item.snippet.liveBroadcastContent}</p>
               <p>${item.snippet.description}</p>
             </div>
           </div>`;
@@ -63,43 +68,34 @@ function renderResult(item){
 function getSubmitValue() {
   $('button[type=submit]').on('click',function(event){
     event.preventDefault();
-    const Term = $('.search-term').val();
-    console.log(`submit success, the Term is ${Term}`);
+    search_Term = $('.search-term').val();
+    // console.log(`submit success, the Term is ${Term}`);
     $('.search-term').val('');
-    getData = getDataFromApi(Term, mapApiArray);
+    getDataFromApi(search_Term, mapApiArray);
   })
 }
 
 // Previous and Next to do here!!
 function previousPage(){
-    query.pageToken = getData.prevPageToken;
+    
 
-    mapApiArray( getDataFromApi(youtubeEndPoint, query,mapApiArray) );
 }
 
 function clickPrevious(){
    $('.previous').on('click',function(event){
      event.preventDefault();
 
-     previousPage(data);
    })
 }
 
 function nextPage(data){
-  $('.next').on('click',function(event){
-    event.preventDefault();
-    query.pageToken = getData.nextPageToken;
-    console.log( `query.pageToken is ${query.pageToken}`);
-    getDataFromApi(youtubeEndPoint, query, mapApiArray);
+  $('.next').on('click',function(){
+        
+    getDataFromApi(search_Term, mapApiArray);
+
   })
 }
 
-// click to watch video to do here!!
-function clickToWatch(){
-  $('.thumbnail').on('click',function(){
-    
-  })
-}
 
 function loadAllFunctions(){
   getSubmitValue();
