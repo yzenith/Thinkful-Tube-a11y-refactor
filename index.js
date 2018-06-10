@@ -40,7 +40,7 @@ function mapApiArray(JSON_Obj){
 function renderResult(item){
   // console.log(data);
   return `<div class="snippet-block">
-            <img src="${item.snippet.thumbnails.medium.url}" class="thumbnail">
+            <img src="${item.snippet.thumbnails.medium.url}" class="thumbnail" alt="${item.snippet.title}">
             <div class="textInfo">
               <h1>${item.snippet.title}</h1>
               <p>Published at: ${item.snippet.publishedAt}</p>
