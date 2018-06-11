@@ -10,6 +10,10 @@ html {
   background-repeat: no-repeat;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* grid css setting */
 body {
   max-width: 1000px;
@@ -93,13 +97,13 @@ nav form fieldset {
 /* media query */
 @media screen and (min-width: 640px) {
   .snippet-block .thumbnail {
-    width: 50%;
+    width: 40%;
     height: 200px;
     display: inline-block;
     float: left;
   }
   .snippet-block .textInfo {
-    width: 50%;
+    width: 60%;
     height: 200px;
     padding: 35px;
     text-align: left;
