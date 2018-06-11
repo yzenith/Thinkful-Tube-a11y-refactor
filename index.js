@@ -52,7 +52,7 @@ function updateTotalResult(Obj) {
 function renderResult(item){
   // console.log(data);
   return `<div class="snippet-block">
-            <a href="https://www.youtube.com/watch?v=7TF00hJI78Y${item.id.videoId}" target="_blank"><img src="${item.snippet.thumbnails.medium.url}" class="thumbnail" alt="${item.snippet.title}"></a>
+            <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank"><img src="${item.snippet.thumbnails.medium.url}" class="thumbnail" alt="${item.snippet.title}"></a>
             <div class="textInfo">
               <h1>${item.snippet.title}</h1>
               <p>Published at: ${item.snippet.publishedAt}</p>
@@ -88,8 +88,8 @@ function clickPrevious(){
    })
 }
 
-function nextPage(data){
-  $('.next').on('click',function(){
+function nextPage(){
+  $('.next-page').on('click',function(){
         
     getDataFromApi(search_Term, mapApiArray);
 
